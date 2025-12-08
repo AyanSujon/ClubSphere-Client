@@ -177,7 +177,7 @@ const EventsDetails = () => {
   const { events, isLoading, isError } = useEvents();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
-  const { user, loading } = useAuth();
+  const { user} = useAuth();
 
 
 
@@ -209,39 +209,59 @@ const EventsDetails = () => {
     );
   }
 
-  // --------------------- EVENT REGISTRATION FUNCTION ---------------------
-  const handleRegisterEvent = async (event) => {
-    try {
-      const registrationData = {
-        eventId: event._id,
-        userEmail: user.email, // Replace with logged-in user email
-        clubId: event.clubId,
-        status: "registered",
-        paymentId: event.isPaid ? null : undefined, // will update if paid
-        registeredAt: new Date().toISOString(),
-      };
-      console.log(registrationData);
-      
-      if (event.isPaid) {
-        // Paid event → redirect to checkout
-        const res = await axiosSecure.post("/register-event-checkout-session", {
-          cost: event.eventFee,
-          eventId: event._id,
-          userEmail: registrationData.userEmail,
-          eventName: event.title,
-        });
-        registrationData.paymentId = res.data.paymentId; // optional
-        window.location.assign(res.data.url);
-      } else {
-        // Free event → register directly
-        await axiosSecure.post("/event-registrations", registrationData);
-        toast.success("Successfully registered for the event!");
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error("Failed to register for the event.");
+
+
+
+
+
+
+
+
+
+const handleRegisterEvent = async (event) => {
+  
+
+    // const paymentInfo = {
+    //   eventId: event._id,
+    //   userEmail: user.email,
+    //   clubId: event.clubId,
+    //   status: "registered",
+    //   paymentId: null,
+    //   registeredAt: new Date().toISOString(),
+    // }
+    const paymentInfo = {
+      cost: event.eventFee,
+      eventId: event._id,
+      userEmail: user.email,
+      eventTitle: event.title,
+      clubId: event.clubId,
+      status: "registered",
+      paymentId: null,
+      registeredAt: new Date().toISOString(),
     }
-  };
+
+        const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);
+        
+
+        console.log(res.data.url);
+        window.location.assign(res.data.url);
+     };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // --------------------- JSX ---------------------
   return (
