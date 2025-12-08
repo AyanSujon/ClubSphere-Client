@@ -14,6 +14,7 @@ import ClubsDetails from "../pages/ClubsDetails/ClubsDetails";
 import EventsDetails from "../pages/EventsDetails/EventsDetails";
 import PaymentCancelled from "../pages/Payment/PaymentCancelled";
 import PaymentSuccess from "../pages/Payment/PaymentSuccess";
+import Payment from "../pages/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <PrivateRoute></PrivateRoute>
+      },
+      {
+        path: 'payment',
+        element: <Payment/>,
       },
 
     ]

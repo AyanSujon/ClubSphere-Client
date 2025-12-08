@@ -177,7 +177,7 @@ const EventsDetails = () => {
   const { events, isLoading, isError } = useEvents();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
-  const { user} = useAuth();
+  const { user } = useAuth();
 
 
 
@@ -218,39 +218,43 @@ const EventsDetails = () => {
 
 
 
-const handleRegisterEvent = async (event) => {
-  
+  const handleRegisterEvent = async (event) => {
 
-    // const paymentInfo = {
+
+    // paymet api 
+    const paymentInfo = {
+      userEmail: user.email,
+      amount: event.eventFee || 0,
+      type: "event",
+      clubId: event.clubId,
+      eventId: event._id,
+      transactionId: null,
+      status: "registered",
+      eventTitle: event.title,
+      createdAt: new Date().toISOString(),
+    }
+    const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);
+    console.log(res.data.url);
+    
+
+    window.location.assign(res.data.url);
+
+
+
+    // const registration = {
     //   eventId: event._id,
-    //   userEmail: user.email,
+    //   userEmail: user?.email,
     //   clubId: event.clubId,
     //   status: "registered",
     //   paymentId: null,
     //   registeredAt: new Date().toISOString(),
+
     // }
-    const paymentInfo = {
-      cost: event.eventFee,
-      eventId: event._id,
-      userEmail: user.email,
-      eventTitle: event.title,
-      clubId: event.clubId,
-      status: "registered",
-      paymentId: null,
-      registeredAt: new Date().toISOString(),
-    }
 
-        const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);
-        
-
-        console.log(res.data.url);
-        window.location.assign(res.data.url);
-     };
+    // const res = await axiosSecure.post('/event-registrations', registration)
 
 
-
-
-
+  };
 
 
 
