@@ -97,39 +97,23 @@ const ClubsDetails = () => {
     //   createdAt: new Date().toISOString(),
     // }
 
-const paymentInfo = {
-    cost: club.membershipFee, // IMPORTANT
-    clubName: club.clubName,
-    category: club.category,
-    managerEmail: club.managerEmail,
-    bannerImage: club.bannerImage,
-    location: club.location,
-    description: club.description,
-    createdAt: new Date().toISOString()
-  };
+// Paid club → start payment
+    const paymentInfo = {
+      cost: club.membershipFee,
+      clubName: club.clubName,
+      category: club.category,
+      managerEmail: club.managerEmail,
+      bannerImage: club.bannerImage,
+      location: club.location,
+      description: club.description,
+      userEmail: user.email,
+      type: "club-membership",
+      clubId: club._id,
+      createdAt: new Date().toISOString(),
+    };
 
-
-
-    const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);
-
+    const res = await axiosSecure.post("/payment-club-membership", paymentInfo);
     window.location.assign(res.data.url);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -242,7 +226,7 @@ const paymentInfo = {
 
             {/* Join Club Button */}
             <button
-              onClick={() => handleJoinClub(club)}
+              onClick={()=>handleJoinClub(club)}
               className="w-fit px-5 py-2 bg-[#fe3885] text-white rounded-lg shadow hover:bg-[#d72b6d] transition mt-3"
             >
               Join Club
