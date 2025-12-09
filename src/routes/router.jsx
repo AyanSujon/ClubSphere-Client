@@ -15,6 +15,7 @@ import EventsDetails from "../pages/EventsDetails/EventsDetails";
 import PaymentCancelled from "../pages/Payment/PaymentCancelled";
 import PaymentSuccess from "../pages/Payment/PaymentSuccess";
 import Payment from "../pages/Payment/Payment";
+import ClubMembershipPaymentSuccess from "../pages/Payment/ClubMembershipPaymentSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: '/payment-success',
         element: <PaymentSuccess/>,
+      },
+      {
+        path: '/club-membership-payment-success',
+        element: <ClubMembershipPaymentSuccess/>,
       },
       {
         path: '/payment-cancelled',
