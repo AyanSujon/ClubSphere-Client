@@ -62,12 +62,14 @@ const Admin = () => {
                 {/* SECTION: CLUBS */}
                 <SectionTitle title="Total Clubs" />
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                   <Link to={"manage-clubs"}>
                     <SummaryCard
                         title="Total Clubs"
                         value={data?.clubs.total}
                         icon={<MdGroup size={30} />}
                         bg="bg-purple-500"
                     />
+                   </Link>
 
                     <SummaryCard
                         title="Pending Clubs"
