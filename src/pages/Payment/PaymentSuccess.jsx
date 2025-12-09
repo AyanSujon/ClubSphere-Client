@@ -32,7 +32,7 @@ const PaymentSuccess = () => {
 
     return (
         <div>
-            Payment success
+            Event Registation Payment success
         </div>
     );
 };

@@ -225,7 +225,7 @@ const EventsDetails = () => {
     const paymentInfo = {
       userEmail: user.email,
       amount: event.eventFee || 0,
-      type: "event",
+      paymentType: "event",
       clubId: event.clubId,
       eventId: event._id,
       transactionId: null,

@@ -107,7 +107,7 @@ const ClubsDetails = () => {
       location: club.location,
       description: club.description,
       userEmail: user.email,
-      type: "club-membership",
+      paymentType: "club-membership",
       clubId: club._id,
       createdAt: new Date().toISOString(),
     };
