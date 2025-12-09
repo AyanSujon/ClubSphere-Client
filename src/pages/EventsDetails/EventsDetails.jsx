@@ -234,24 +234,9 @@ const EventsDetails = () => {
       createdAt: new Date().toISOString(),
     }
     const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);
-    console.log(res.data.url);
-    
 
     window.location.assign(res.data.url);
 
-
-
-    // const registration = {
-    //   eventId: event._id,
-    //   userEmail: user?.email,
-    //   clubId: event.clubId,
-    //   status: "registered",
-    //   paymentId: null,
-    //   registeredAt: new Date().toISOString(),
-
-    // }
-
-    // const res = await axiosSecure.post('/event-registrations', registration)
 
 
   };

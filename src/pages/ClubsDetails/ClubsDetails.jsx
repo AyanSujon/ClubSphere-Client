@@ -28,11 +28,16 @@ import { MdCategory, MdArrowBack } from "react-icons/md";
 import { toast } from "react-hot-toast";
 import useClubs from "../../hooks/useClubs";
 import Container from "../../components/shared/Container";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../hooks/useAuth";
 
 const ClubsDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { clubs = [], isLoading, isError } = useClubs();
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+
 
   // Loading State
   if (isLoading) {
@@ -67,13 +72,67 @@ const ClubsDetails = () => {
 
 
 
- const handleJoinClub = (id) => {
-    console.log(id)
+  const handleJoinClub = async (club) => {
+    console.log(club)
     if (club.membershipFee === 0) {
       toast.success("You have successfully joined this club!");
     } else {
       toast.success("Redirecting to payment...");
     }
+
+
+
+
+    // const paymentInfo = {
+    //   bannerImage: club.bannerImage,
+    //   category: club.category,
+    //   clubName: club.clubName,
+    //   // createdAt: club. createdAt,
+    //   description: club.description,
+    //   location: club.location,
+    //   managerEmail: club.managerEmail,
+    //   membershipFee: club.membershipFee,
+    //   status: club.status,
+    //   updatedAt: club.updatedAt,
+    //   createdAt: new Date().toISOString(),
+    // }
+
+const paymentInfo = {
+    cost: club.membershipFee, // IMPORTANT
+    clubName: club.clubName,
+    category: club.category,
+    managerEmail: club.managerEmail,
+    bannerImage: club.bannerImage,
+    location: club.location,
+    description: club.description,
+    createdAt: new Date().toISOString()
+  };
+
+
+
+    const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);
+
+    window.location.assign(res.data.url);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   };
 
 
@@ -183,7 +242,7 @@ const ClubsDetails = () => {
 
             {/* Join Club Button */}
             <button
-              onClick={() => handleJoinClub(club._id)}
+              onClick={() => handleJoinClub(club)}
               className="w-fit px-5 py-2 bg-[#fe3885] text-white rounded-lg shadow hover:bg-[#d72b6d] transition mt-3"
             >
               Join Club
