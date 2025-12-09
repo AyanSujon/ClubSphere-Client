@@ -16,6 +16,7 @@ import PaymentCancelled from "../pages/Payment/PaymentCancelled";
 import PaymentSuccess from "../pages/Payment/PaymentSuccess";
 import Payment from "../pages/Payment/Payment";
 import ClubMembershipPaymentSuccess from "../pages/Payment/ClubMembershipPaymentSuccess";
+import Admin from "../pages/Dashboard/Admin/Admin";
 
 export const router = createBrowserRouter([
   {
@@ -85,6 +86,11 @@ export const router = createBrowserRouter([
         path: 'payment',
         element: <Payment/>,
       },
+      {
+        path: 'admin',
+        element: <Admin/>
+      },
+   
 
     ]
   },
