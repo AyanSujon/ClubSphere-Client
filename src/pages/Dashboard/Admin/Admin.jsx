@@ -11,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FaUsers, FaMoneyBill, FaClipboardList, FaWpforms, FaCheckCircle } from "react-icons/fa";
 import { MdEvent, MdGroup } from "react-icons/md";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import MembershipChart from "../../../components/admin/MembershipChart";
 
 const Admin = () => {
     const axiosSecure = useAxiosSecure();
@@ -40,7 +41,8 @@ const Admin = () => {
     }
 
     return (
-        <div className="p-8 bg-gray-100 min-h-screen">
+        <div>
+            <div className="p-8 bg-gray-100 min-h-screen">
             <h1 className="text-3xl font-bold mb-10 text-gray-800">Admin Overview</h1>
 
             {/* SECTION: USERS */}
@@ -133,6 +135,8 @@ const Admin = () => {
                 />
             </div>
         </div>
+            <MembershipChart/>
+        </div>
     );
 };
 
@@ -153,3 +157,7 @@ const SummaryCard = ({ title, value, icon, bg }) => (
 );
 
 export default Admin;
+
+
+
+
