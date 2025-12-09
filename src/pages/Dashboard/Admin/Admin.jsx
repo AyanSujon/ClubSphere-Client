@@ -12,6 +12,7 @@ import { FaUsers, FaMoneyBill, FaClipboardList, FaWpforms, FaCheckCircle } from 
 import { MdEvent, MdGroup } from "react-icons/md";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import MembershipChart from "../../../components/admin/MembershipChart";
+import { Link } from "react-router";
 
 const Admin = () => {
     const axiosSecure = useAxiosSecure();
@@ -43,99 +44,101 @@ const Admin = () => {
     return (
         <div>
             <div className="p-8 bg-gray-100 min-h-screen">
-            <h1 className="text-3xl font-bold mb-10 text-gray-800">Admin Overview</h1>
+                <h1 className="text-3xl font-bold mb-10 text-gray-800">Admin Overview</h1>
 
-            {/* SECTION: USERS */}
-            <SectionTitle title="Total Users" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <SummaryCard
-                    title="Total Users"
-                    value={data?.users.total}
-                    icon={<FaUsers size={30} />}
-                    bg="bg-blue-500"
-                />
+                {/* SECTION: USERS */}
+                <SectionTitle title="Total Users" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <Link to={"manage-users"}>
+                        <SummaryCard
+                            title="Total Users"
+                            value={data?.users.total}
+                            icon={<FaUsers size={30} />}
+                            bg="bg-blue-500"
+                        />
+                    </Link>
+                </div>
+
+                {/* SECTION: CLUBS */}
+                <SectionTitle title="Total Clubs" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <SummaryCard
+                        title="Total Clubs"
+                        value={data?.clubs.total}
+                        icon={<MdGroup size={30} />}
+                        bg="bg-purple-500"
+                    />
+
+                    <SummaryCard
+                        title="Pending Clubs"
+                        value={data?.clubs.pending}
+                        icon={<FaClipboardList size={30} />}
+                        bg="bg-yellow-500"
+                    />
+
+                    <SummaryCard
+                        title="Approved Clubs"
+                        value={data?.clubs.approved}
+                        icon={<FaCheckCircle size={30} />}
+                        bg="bg-green-500"
+                    />
+
+                    <SummaryCard
+                        title="Rejected Clubs"
+                        value={data?.clubs.rejected}
+                        icon={<FaClipboardList size={30} />}
+                        bg="bg-red-500"
+                    />
+                </div>
+
+                {/* SECTION: MEMBERSHIPS */}
+                <SectionTitle title="Total Memberships" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <SummaryCard
+                        title="Total Memberships"
+                        value={data?.memberships.total}
+                        icon={<FaWpforms size={30} />}
+                        bg="bg-indigo-500"
+                    />
+                </div>
+
+                {/* SECTION: EVENTS */}
+                <SectionTitle title="Total Events" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <SummaryCard
+                        title="Total Events"
+                        value={data?.events.total}
+                        icon={<MdEvent size={30} />}
+                        bg="bg-teal-500"
+                    />
+
+                    <SummaryCard
+                        title="Event Registrations"
+                        value={data?.eventRegistrations.total}
+                        icon={<FaClipboardList size={30} />}
+                        bg="bg-orange-500"
+                    />
+                </div>
+
+                {/* SECTION: PAYMENTS */}
+                <SectionTitle title="Total Payments" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <SummaryCard
+                        title="Total Payments Count"
+                        value={data?.payments.totalPayments}
+                        icon={<FaMoneyBill size={30} />}
+                        bg="bg-lime-600"
+                    />
+
+                    <SummaryCard
+                        title="Total Payment Amount"
+                        value={`$${data?.payments.totalAmount}`}
+                        icon={<FaMoneyBill size={30} />}
+                        bg="bg-emerald-600"
+                    />
+                </div>
             </div>
-
-            {/* SECTION: CLUBS */}
-            <SectionTitle title="Total Clubs" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <SummaryCard
-                    title="Total Clubs"
-                    value={data?.clubs.total}
-                    icon={<MdGroup size={30} />}
-                    bg="bg-purple-500"
-                />
-
-                <SummaryCard
-                    title="Pending Clubs"
-                    value={data?.clubs.pending}
-                    icon={<FaClipboardList size={30} />}
-                    bg="bg-yellow-500"
-                />
-
-                <SummaryCard
-                    title="Approved Clubs"
-                    value={data?.clubs.approved}
-                    icon={<FaCheckCircle size={30} />}
-                    bg="bg-green-500"
-                />
-
-                <SummaryCard
-                    title="Rejected Clubs"
-                    value={data?.clubs.rejected}
-                    icon={<FaClipboardList size={30} />}
-                    bg="bg-red-500"
-                />
-            </div>
-
-            {/* SECTION: MEMBERSHIPS */}
-            <SectionTitle title="Total Memberships" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <SummaryCard
-                    title="Total Memberships"
-                    value={data?.memberships.total}
-                    icon={<FaWpforms size={30} />}
-                    bg="bg-indigo-500"
-                />
-            </div>
-
-            {/* SECTION: EVENTS */}
-            <SectionTitle title="Total Events" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <SummaryCard
-                    title="Total Events"
-                    value={data?.events.total}
-                    icon={<MdEvent size={30} />}
-                    bg="bg-teal-500"
-                />
-
-                <SummaryCard
-                    title="Event Registrations"
-                    value={data?.eventRegistrations.total}
-                    icon={<FaClipboardList size={30} />}
-                    bg="bg-orange-500"
-                />
-            </div>
-
-            {/* SECTION: PAYMENTS */}
-            <SectionTitle title="Total Payments" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <SummaryCard
-                    title="Total Payments Count"
-                    value={data?.payments.totalPayments}
-                    icon={<FaMoneyBill size={30} />}
-                    bg="bg-lime-600"
-                />
-
-                <SummaryCard
-                    title="Total Payment Amount"
-                    value={`$${data?.payments.totalAmount}`}
-                    icon={<FaMoneyBill size={30} />}
-                    bg="bg-emerald-600"
-                />
-            </div>
-        </div>
-            <MembershipChart/>
+            <MembershipChart />
         </div>
     );
 };
