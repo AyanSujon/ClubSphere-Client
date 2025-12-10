@@ -20,6 +20,7 @@ import Admin from "../pages/Dashboard/Admin/Admin";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import ManageClubs from "../pages/Dashboard/Admin/Manage Clubs/ManageClubs";
 import Transactions from "../pages/Dashboard/Admin/Transactions/Transactions";
+import ClubManager from "../pages/Dashboard/ClubManager/ClubManager";
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/clubs/:id',
-        element: <ClubsDetails/>,
+        element: <ClubsDetails />,
       },
       {
         path: '/events',
@@ -45,19 +46,19 @@ export const router = createBrowserRouter([
       },
       {
         path: '/events/:id',
-        element: <EventsDetails/>,
+        element: <EventsDetails />,
       },
       {
         path: '/payment-success',
-        element: <PaymentSuccess/>,
+        element: <PaymentSuccess />,
       },
       {
         path: '/club-membership-payment-success',
-        element: <ClubMembershipPaymentSuccess/>,
+        element: <ClubMembershipPaymentSuccess />,
       },
       {
         path: '/payment-cancelled',
-        element: <PaymentCancelled/>,
+        element: <PaymentCancelled />,
       },
       {
         path: '/pricing',
@@ -87,25 +88,29 @@ export const router = createBrowserRouter([
       },
       {
         path: 'payment',
-        element: <Payment/>,
+        element: <Payment />,
       },
       {
         path: 'admin',
-        element: <Admin/>,
+        element: <Admin />,
       },
       {
         path: 'admin/manage-users',
-        element: <ManageUsers/>,
+        element: <ManageUsers />,
       },
       {
         path: 'admin/manage-clubs',
-        element: <ManageClubs/>,
+        element: <ManageClubs />,
       },
       {
         path: 'admin/transactions',
-        element: <Transactions/>,
+        element: <Transactions />,
       },
-   
+      {
+        path: 'manager',
+        element: <ClubManager/>,
+      },
+
 
     ]
   },

@@ -35,7 +35,11 @@ const ManageUsers = () => {
   if (isError) return <p>Error fetching users</p>;
 
   return (
-    <div className="overflow-x-auto">
+    <div>
+      <div className="p-4">
+        <h1 className="text-2xl font-bold mb-4">Manage Users</h1>
+      </div>
+      <div className="overflow-x-auto">
       <table className="table w-full">
         <thead>
           <tr>
@@ -96,6 +100,7 @@ const ManageUsers = () => {
           </tr>
         </tfoot>
       </table>
+    </div>
     </div>
   );
 };

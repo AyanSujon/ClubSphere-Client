@@ -1,14 +1,11 @@
 import React from 'react';
 
-const Dashboard = () => {
-
+const ClubManager = () => {
     return (
         <div>
-            Dashboard
+            ClubManager
         </div>
     );
 };
 
-export default Dashboard;
-
-
+export default ClubManager;
