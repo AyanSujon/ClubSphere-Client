@@ -19,6 +19,7 @@ import ClubMembershipPaymentSuccess from "../pages/Payment/ClubMembershipPayment
 import Admin from "../pages/Dashboard/Admin/Admin";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import ManageClubs from "../pages/Dashboard/Admin/Manage Clubs/ManageClubs";
+import Transactions from "../pages/Dashboard/Admin/Transactions/Transactions";
 
 export const router = createBrowserRouter([
   {
@@ -99,6 +100,10 @@ export const router = createBrowserRouter([
       {
         path: 'admin/manage-clubs',
         element: <ManageClubs/>,
+      },
+      {
+        path: 'admin/transactions',
+        element: <Transactions/>,
       },
    
 
