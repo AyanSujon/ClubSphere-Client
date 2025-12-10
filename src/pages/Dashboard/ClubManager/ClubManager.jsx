@@ -66,7 +66,7 @@ const ClubManager = () => {
 
       </div>
 
-      {/* DETAILS TABLE */}
+      {/* DETAILS TABLE
       <div className="overflow-x-auto rounded-xl border border-base-300 shadow-lg">
         <table className="table">
           <thead className="bg-base-200">
@@ -97,10 +97,17 @@ const ClubManager = () => {
             )}
           </tbody>
         </table>
-      </div>
+      </div> */}
 
     </div>
   );
 };
 
 export default ClubManager;
+
+
+
+
+
+
+

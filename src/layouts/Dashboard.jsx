@@ -75,6 +75,16 @@ const Dashboard = () => {
                                     <FaUserTie className="inline-block mr-2" />
                                     <span className="is-drawer-close:hidden">Manager</span>
                                 </Link>
+                                <Link to={"/dashboard/manager/my-clubs"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Clubs">
+                                    {/* Home icon */}
+                                    <FaUserTie className="inline-block mr-2" />
+                                    <span className="is-drawer-close:hidden">My Clubs</span>
+                                </Link>
+                                <Link to={"/dashboard/manager"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Manager">
+                                    {/* Home icon */}
+                                    <FaUserTie className="inline-block mr-2" />
+                                    <span className="is-drawer-close:hidden">Manager</span>
+                                </Link>
                             </li>
 
                             {/* List item */}

@@ -21,6 +21,7 @@ import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import ManageClubs from "../pages/Dashboard/Admin/Manage Clubs/ManageClubs";
 import Transactions from "../pages/Dashboard/Admin/Transactions/Transactions";
 import ClubManager from "../pages/Dashboard/ClubManager/ClubManager";
+import MyClubs from "../pages/Dashboard/ClubManager/MyClubs/MyClubs";
 
 export const router = createBrowserRouter([
   {
@@ -109,6 +110,10 @@ export const router = createBrowserRouter([
       {
         path: 'manager',
         element: <ClubManager/>,
+      },
+      {
+        path: 'manager/my-clubs',
+        element: <MyClubs/>,
       },
 
 
