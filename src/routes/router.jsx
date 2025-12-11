@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Outlet } from "react-router";
 import Root from "../layouts/Root";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home/Home";
@@ -52,15 +52,15 @@ export const router = createBrowserRouter([
       },
       {
         path: '/payment-success',
-        element: <PaymentSuccess />,
+        element: <PrivateRoute><PaymentSuccess /></PrivateRoute>,
       },
       {
         path: '/club-membership-payment-success',
-        element: <ClubMembershipPaymentSuccess />,
+        element: <PrivateRoute><ClubMembershipPaymentSuccess /></PrivateRoute>,
       },
       {
         path: '/payment-cancelled',
-        element: <PaymentCancelled />,
+        element: <PrivateRoute> <PaymentCancelled /></PrivateRoute>
       },
       {
         path: '/pricing',
@@ -81,12 +81,18 @@ export const router = createBrowserRouter([
     element: <Register />,
   },
   {
+    path: '/*',
+    element: <ErrorPage/>,
+  },
+  {
     path: '/dashboard',
     element: <PrivateRoute><Dashboard /></PrivateRoute>,
     children: [
       {
         index: true,
-        element: <PrivateRoute></PrivateRoute>
+        element: <PrivateRoute>
+         <Admin></Admin>
+        </PrivateRoute>
       },
       {
         path: 'payment',
