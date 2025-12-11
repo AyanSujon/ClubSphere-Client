@@ -145,17 +145,19 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { FaCalendarAlt } from "react-icons/fa";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
+import useAuth from "../../../../hooks/useAuth";
 
 const ClubMembers = () => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
   const [selectedDates, setSelectedDates] = useState({}); // store selected date per member
-
+const {user} = useAuth();
   // Fetch club members
   const { data, isLoading, isError } = useQuery({
     queryKey: ["clubMembers"],
     queryFn: async () => {
       const response = await axiosSecure.get(
+        // `/club-members?managerEmail=${user.email}&role=${user.role}`
         "/club-members?managerEmail=ayansujonbd@gmail.com&role=manager"
       );
       return response.data.data;
