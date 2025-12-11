@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router';
-import { FaBuilding, FaMoneyBillWave, FaUsers, FaUserShield, FaUserTie } from 'react-icons/fa6';
+import { FaBuilding, FaClipboardList, FaMoneyBillWave, FaUsers, FaUserShield, FaUserTie } from 'react-icons/fa6';
+import { FaUserFriends, FaCalendarAlt } from "react-icons/fa";
+
 import Logo from '../components/shared/Logo';
 import Container from '../components/shared/Container';
 const Dashboard = () => {
@@ -74,20 +76,31 @@ const Dashboard = () => {
                                 {/* Manager List item */}
                                 <li>
                                     <Link to={"/dashboard/manager"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Manager">
-                                        {/* Home icon */}
-                                        <FaUserTie className="inline-block mr-2" />
+                                        <FaUserTie className="inline-block mr-2" /> {/* Manager Overview */}
                                         <span className="is-drawer-close:hidden">Manager Overview</span>
                                     </Link>
+
                                     <Link to={"/dashboard/manager/my-clubs"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Clubs">
-                                        {/* Home icon */}
-                                        <FaUserTie className="inline-block mr-2" />
+                                        <FaUsers className="inline-block mr-2" /> {/* Group of users / clubs */}
                                         <span className="is-drawer-close:hidden">My Clubs</span>
                                     </Link>
-                                    <Link to={"/dashboard/manager"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Manager">
-                                        {/* Home icon */}
-                                        <FaUserTie className="inline-block mr-2" />
-                                        <span className="is-drawer-close:hidden">Manager</span>
+
+                                    <Link to={"/dashboard/manager/club-members"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Club Members">
+                                        <FaUserFriends className="inline-block mr-2" /> {/* Individual members */}
+                                        <span className="is-drawer-close:hidden">Club Members</span>
                                     </Link>
+
+                                    <Link to={"/dashboard/manager/events-management"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Events Management">
+                                        <FaCalendarAlt className="inline-block mr-2" /> {/* Calendar / events */}
+                                        <span className="is-drawer-close:hidden">Events Management</span>
+                                    </Link>
+
+                                    <Link to={"/dashboard/manager/event-registrations"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Event Registrations">
+                                        <FaClipboardList className="inline-block mr-2" /> {/* Registrations / list */}
+                                        <span className="is-drawer-close:hidden">Event Registrations</span>
+                                    </Link>
+
+
                                 </li>
 
                                 {/* List item */}

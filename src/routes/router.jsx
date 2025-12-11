@@ -23,6 +23,7 @@ import Transactions from "../pages/Dashboard/Admin/Transactions/Transactions";
 import ClubManager from "../pages/Dashboard/ClubManager/ClubManager";
 import MyClubs from "../pages/Dashboard/ClubManager/MyClubs/MyClubs";
 import EditClub from "../pages/Dashboard/ClubManager/EditClub/EditClub";
+import ClubMembers from "../pages/Dashboard/ClubManager/ClubMembers/ClubMembers";
 
 export const router = createBrowserRouter([
   {
@@ -124,11 +125,15 @@ export const router = createBrowserRouter([
       },
       {
         path: 'manager/my-clubs/:id',
-        element: <ClubsDetails/>
+        element: <ClubsDetails/>,
       },
       {
         path: 'manager/my-clubs/:id/edit',
-        element: <EditClub />
+        element: <EditClub />,
+      },
+      {
+        path: 'manager/club-members',
+        element: <ClubMembers/>,
       },
 
 
