@@ -1,8 +1,6 @@
 
 
 
-
-
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { FaUsers, FaCalendarAlt, FaClock } from 'react-icons/fa';
@@ -13,7 +11,7 @@ const MemberOverview = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth(); // dynamic user
   const userEmail = user?.email || ''; // fallback if undefined
-  const role = user?.role || 'member';
+  const role = user?.role || 'manager';
 
   // Fetch member overview
   const { data, isLoading, isError } = useQuery({

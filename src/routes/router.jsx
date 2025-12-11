@@ -162,6 +162,10 @@ export const router = createBrowserRouter([
         element: <MyClubsMember/>,
       },
       {
+        path: 'member/my-clubs/:id',
+        element: <ClubsDetails/>,
+      },
+      {
         path: 'member/my-events',
         element: <MyEventsMember/>,
       },
