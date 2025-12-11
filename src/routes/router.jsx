@@ -26,6 +26,10 @@ import EditClub from "../pages/Dashboard/ClubManager/EditClub/EditClub";
 import ClubMembers from "../pages/Dashboard/ClubManager/ClubMembers/ClubMembers";
 import EventsManagement from "../pages/Dashboard/ClubManager/EventsManagement/EventsManagement";
 import EventRegistrations from "../pages/Dashboard/ClubManager/EventRegistrations/EventRegistrations";
+import MemberOverview from "../pages/Dashboard/Member/MemberOverview/MemberOverview";
+import MyClubsMember from "../pages/Dashboard/Member/MyClubsMember/MyClubsMember";
+import MyEventsMember from "../pages/Dashboard/Member/MyEventsMember/MyEventsMember";
+import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -85,7 +89,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/*',
-    element: <ErrorPage/>,
+    element: <ErrorPage />,
   },
   {
     path: '/dashboard',
@@ -94,7 +98,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <PrivateRoute>
-         <Admin></Admin>
+          <Admin></Admin>
         </PrivateRoute>
       },
       {
@@ -119,15 +123,15 @@ export const router = createBrowserRouter([
       },
       {
         path: 'manager',
-        element: <ClubManager/>,
+        element: <ClubManager />,
       },
       {
         path: 'manager/my-clubs',
-        element: <MyClubs/>,
+        element: <MyClubs />,
       },
       {
         path: 'manager/my-clubs/:id',
-        element: <ClubsDetails/>,
+        element: <ClubsDetails />,
       },
       {
         path: 'manager/my-clubs/:id/edit',
@@ -135,16 +139,37 @@ export const router = createBrowserRouter([
       },
       {
         path: 'manager/club-members',
-        element: <ClubMembers/>,
+        element: <ClubMembers />,
       },
       {
         path: 'manager/events-management',
-        element: <EventsManagement/>,
+        element: <EventsManagement />,
       },
       {
         path: 'manager/event-registrations',
-        element: <EventRegistrations/>,
+        element: <EventRegistrations />,
       },
+      {
+        path: 'member',
+        element: <MemberOverview/>,
+      },
+      {
+        path: 'member/my-clubs',
+        element: <MyClubsMember/>,
+      },
+      {
+        path: 'member/my-clubs',
+        element: <MyClubsMember/>,
+      },
+      {
+        path: 'member/my-events',
+        element: <MyEventsMember/>,
+      },
+      {
+        path: 'member/payment-history',
+        element: <PaymentHistory/>,
+      },
+
 
     ]
   },

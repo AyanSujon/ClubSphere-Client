@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router';
 import { FaBuilding, FaClipboardList, FaMoneyBillWave, FaUsers, FaUserShield, FaUserTie } from 'react-icons/fa6';
-import { FaUserFriends, FaCalendarAlt } from "react-icons/fa";
+import { FaUserFriends, FaCalendarAlt, FaMoneyCheckAlt } from "react-icons/fa";
 
 import Logo from '../components/shared/Logo';
 import Container from '../components/shared/Container';
@@ -102,6 +102,41 @@ const Dashboard = () => {
 
 
                                 </li>
+                    
+                                {/* Member List item */}
+                                <li>
+                                    <Link to={"/dashboard/member"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Member Overview">
+                                        <FaUsers className="my-1.5 inline-block size-4" />
+                                        <span className="is-drawer-close:hidden">Member Overview</span>
+                                    </Link>
+
+                                    <Link to={"/dashboard/member/my-clubs"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Clubs">
+                                        <FaBuilding className="my-1.5 inline-block size-4" />
+                                        <span className="is-drawer-close:hidden">My Clubs</span>
+                                    </Link>
+
+                                    <Link to={"/dashboard/member/my-events"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Events">
+                                        <FaCalendarAlt className="my-1.5 inline-block size-4" />
+                                        <span className="is-drawer-close:hidden">My Events</span>
+                                    </Link>
+
+                                    <Link to={"/dashboard/member/payment-history"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Payment History">
+                                        <FaMoneyCheckAlt className="my-1.5 inline-block size-4" />
+                                        <span className="is-drawer-close:hidden">Payment History</span>
+                                    </Link>
+                                </li>
+
+
+
+
+
+
+
+
+
+
+
+
 
                                 {/* List item */}
                                 <li>

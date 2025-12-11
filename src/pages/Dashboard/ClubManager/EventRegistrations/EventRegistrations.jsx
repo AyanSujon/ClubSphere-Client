@@ -8,6 +8,7 @@ import useAuth from "../../../../hooks/useAuth";
 const EventRegistrations = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth(); // dynamic manager
+  const photoURL = user?.photoURL;
 
   const managerEmail = user?.email;
   const role = user?.role || "manager";
@@ -67,22 +68,32 @@ const EventRegistrations = () => {
             {registrations.map((reg, index) => (
               <tr key={index}>
                 <td>
-                  <FaUserCircle className="text-3xl text-gray-500" />
+                  {
+                    photoURL ? (
+                      <img
+                        src={photoURL}
+                        alt="User"
+                        className="w-10 h-10 rounded-full object-cover"
+                      />
+                    ) : (
+                      <FaUserCircle className="text-3xl text-gray-500" />
+                    )
+                  }
                 </td>
 
                 <td>{reg.userEmail}</td>
 
                 <td>
                   <span
-                    className={`px-2 py-1 rounded-full text-white ${
-                      reg.status === "registered"
+                    className={`px-2 py-1 rounded-full text-white ${reg.status === "registered"
                         ? "bg-green-500"
                         : "bg-red-500"
-                    }`}
+                      }`}
                   >
-                    {reg.status}
+                    {reg.status === "registered" ? "Registered" : "Cancelled"}
                   </span>
                 </td>
+
 
                 <td>
                   {new Date(reg.registeredAt).toLocaleString("en-US", {
@@ -110,3 +121,15 @@ const EventRegistrations = () => {
 };
 
 export default EventRegistrations;
+
+
+
+
+
+
+
+
+
+
+
+
