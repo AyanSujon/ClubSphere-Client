@@ -4,14 +4,16 @@ import { FaUserCircle } from "react-icons/fa";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
 import useAuth from "../../../../hooks/useAuth";
+import useRole from "../../../../hooks/useRole";
 
 const EventRegistrations = () => {
   const axiosSecure = useAxiosSecure();
-  const { user } = useAuth(); // dynamic manager
+   const { user } = useAuth();
+  const { role, roleLoading } = useRole();
   const photoURL = user?.photoURL;
 
   const managerEmail = user?.email;
-  const role = user?.role || "manager";
+
 
   const { data: registrations = [], isLoading, isError } = useQuery({
     queryKey: ["eventRegistrations", managerEmail, role],
@@ -31,7 +33,7 @@ const EventRegistrations = () => {
         throw error;
       }
     },
-    enabled: !!managerEmail && !!role, // only run if email & role available
+    enabled: !!managerEmail && !roleLoading // only run if email & role available
   });
 
   if (isLoading) {
