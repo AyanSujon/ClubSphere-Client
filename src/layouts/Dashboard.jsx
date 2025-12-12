@@ -4,10 +4,15 @@ import { FaBuilding, FaClipboardList, FaMoneyBillWave, FaUsers, FaUserShield, Fa
 import { FaUserFriends, FaCalendarAlt, FaMoneyCheckAlt } from "react-icons/fa";
 
 import Logo from '../components/shared/Logo';
+// import useAuth from '../hooks/useAuth';
 const Dashboard = () => {
+    // const { user } = useAuth();
+    // const role = user?.role; // "admin" | "clubManager" | "member"
+
+
     return (
         <div>
-                <div className="drawer lg:drawer-open">
+            <div className="drawer lg:drawer-open">
                     <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
                         {/* Navbar */}
@@ -39,6 +44,14 @@ const Dashboard = () => {
                                     </Link>
                                 </li>
                                 {/* Admin List item */}
+                                {/* {
+                                     role === "admin" && (
+                                        <>
+                                        
+                                        </>
+                                     )
+                                } */}
+
                                 <li>
                                     <Link to={"/dashboard/admin"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Admin Overview">
                                         {/* Home icon */}
@@ -63,14 +76,14 @@ const Dashboard = () => {
 
                                 </li>
 
-
-
-
-
-
-
-
                                 {/* Manager List item */}
+                                {/* {
+                                    role === "clubManager" && (
+                                        <>
+                                    </>
+                                    )
+                                } */}
+                    
                                 <li>
                                     <Link to={"/dashboard/manager"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Manager">
                                         <FaUserTie className="inline-block mr-2" /> {/* Manager Overview */}
@@ -99,8 +112,15 @@ const Dashboard = () => {
 
 
                                 </li>
-                    
                                 {/* Member List item */}
+
+                                {/* {
+                                    role === "member" && (
+                                    <>
+
+                                    </>)
+                                } */}
+
                                 <li>
                                     <Link to={"/dashboard/member"} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Member Overview">
                                         <FaUsers className="my-1.5 inline-block size-4" />
@@ -122,17 +142,6 @@ const Dashboard = () => {
                                         <span className="is-drawer-close:hidden">Payment History</span>
                                     </Link>
                                 </li>
-
-
-
-
-
-
-
-
-
-
-
 
 
                                 {/* List item */}

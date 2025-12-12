@@ -31,6 +31,9 @@ import MyClubsMember from "../pages/Dashboard/Member/MyClubsMember/MyClubsMember
 import MyEventsMember from "../pages/Dashboard/Member/MyEventsMember/MyEventsMember";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory/PaymentHistory";
 import EditEvent from "../pages/Dashboard/ClubManager/EditEvent/EditEvent";
+import AdminRoute from "./AdminRoute";
+import ClubManagerRoute from "./ClubManagerRoute";
+import MemberRoute from "./MemberRoute";
 
 export const router = createBrowserRouter([
   {
@@ -108,75 +111,75 @@ export const router = createBrowserRouter([
       },
       {
         path: 'admin',
-        element: <Admin />,
+        element: <AdminRoute><Admin /></AdminRoute>,
       },
       {
         path: 'admin/manage-users',
-        element: <ManageUsers />,
+        element: <AdminRoute><ManageUsers /></AdminRoute>,
       },
       {
         path: 'admin/manage-clubs',
-        element: <ManageClubs />,
+        element: <AdminRoute><ManageClubs /></AdminRoute>,
       },
       {
         path: 'admin/transactions',
-        element: <Transactions />,
+        element: <AdminRoute><Transactions /></AdminRoute>,
       },
       {
         path: 'manager',
-        element: <ClubManager />,
+        element: <ClubManagerRoute><ClubManager /></ClubManagerRoute>,
       },
       {
         path: 'manager/my-clubs',
-        element: <MyClubs />,
+        element: <ClubManagerRoute><MyClubs /></ClubManagerRoute>,
       },
       {
         path: 'manager/my-clubs/:id',
-        element: <ClubsDetails />,
+        element: <ClubManagerRoute><ClubsDetails /></ClubManagerRoute>,
       },
       {
         path: 'manager/my-clubs/:id/edit',
-        element: <EditClub />,
+        element: <ClubManagerRoute><EditClub /></ClubManagerRoute>,
       },
       {
         path: 'manager/club-members',
-        element: <ClubMembers />,
+        element: <ClubManagerRoute><ClubMembers /></ClubManagerRoute>,
       },
       {
         path: 'manager/events-management',
-        element: <EventsManagement />,
+        element: <ClubManagerRoute><EventsManagement /></ClubManagerRoute>,
       },
       {
         path: 'manager/events-management/:id/edit',
-        element: <EditEvent/>,
+        element: <ClubManagerRoute><EditEvent/></ClubManagerRoute>,
       },
       {
         path: 'manager/event-registrations',
-        element: <EventRegistrations />,
+        element: <ClubManagerRoute><EventRegistrations /></ClubManagerRoute>,
       },
       {
         path: 'member',
-        element: <MemberOverview/>,
+        element: <MemberRoute><MemberOverview/></MemberRoute>,
       },
       {
         path: 'member/my-clubs',
-        element: <MyClubsMember/>,
+        element: <MemberRoute><MyClubsMember/></MemberRoute>,
       },
       {
         path: 'member/my-clubs',
-        element: <MyClubsMember/>,
+        element: <MemberRoute><MyClubsMember/></MemberRoute>,
       },
       {
         path: 'member/my-clubs/:id',
-        element: <ClubsDetails/>,
+        element: <MemberRoute><ClubsDetails/></MemberRoute>,
       },
       {
         path: 'member/my-events',
-        element: <MyEventsMember/>,
+        element: <MemberRoute><MyEventsMember/></MemberRoute>,
       },
       {
         path: 'member/payment-history',
-        element: <PaymentHistory/>,
+        element: <MemberRoute><PaymentHistory/></MemberRoute>,
       },
 
 
