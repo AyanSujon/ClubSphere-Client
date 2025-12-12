@@ -124,6 +124,9 @@ import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
+import Swal from 'sweetalert2'
+
+
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
@@ -149,9 +152,35 @@ const ManageUsers = () => {
     },
   });
 
-  const handleChangeRole = (userId, role) => {
-    changeRoleMutation.mutate({ userId, role });
-  };
+const handleChangeRole = (userId, role) => {
+  const updateInfo = { role };
+
+  axiosSecure
+    .patch(`/users/${userId}/role`, updateInfo)
+    .then((res) => {
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Role updated to ${role}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        queryClient.invalidateQueries(["users"]); // re-fetch
+      }
+    })
+    .catch(() => {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Failed to update role",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
+};
+
 
   if (isLoading) return <p>Loading users...</p>;
   if (isError) return <p>Error fetching users</p>;
