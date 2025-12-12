@@ -34,6 +34,7 @@ import EditEvent from "../pages/Dashboard/ClubManager/EditEvent/EditEvent";
 import AdminRoute from "./AdminRoute";
 import ClubManagerRoute from "./ClubManagerRoute";
 import MemberRoute from "./MemberRoute";
+import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -102,7 +103,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <PrivateRoute>
-          <Admin></Admin>
+          <DashboardHome />
         </PrivateRoute>
       },
       {
@@ -151,7 +152,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'manager/events-management/:id/edit',
-        element: <ClubManagerRoute><EditEvent/></ClubManagerRoute>,
+        element: <ClubManagerRoute><EditEvent /></ClubManagerRoute>,
       },
       {
         path: 'manager/event-registrations',
@@ -159,27 +160,27 @@ export const router = createBrowserRouter([
       },
       {
         path: 'member',
-        element: <MemberRoute><MemberOverview/></MemberRoute>,
+        element: <MemberRoute><MemberOverview /></MemberRoute>,
       },
       {
         path: 'member/my-clubs',
-        element: <MemberRoute><MyClubsMember/></MemberRoute>,
+        element: <MemberRoute><MyClubsMember /></MemberRoute>,
       },
       {
         path: 'member/my-clubs',
-        element: <MemberRoute><MyClubsMember/></MemberRoute>,
+        element: <MemberRoute><MyClubsMember /></MemberRoute>,
       },
       {
         path: 'member/my-clubs/:id',
-        element: <MemberRoute><ClubsDetails/></MemberRoute>,
+        element: <MemberRoute><ClubsDetails /></MemberRoute>,
       },
       {
         path: 'member/my-events',
-        element: <MemberRoute><MyEventsMember/></MemberRoute>,
+        element: <MemberRoute><MyEventsMember /></MemberRoute>,
       },
       {
         path: 'member/payment-history',
-        element: <MemberRoute><PaymentHistory/></MemberRoute>,
+        element: <MemberRoute><PaymentHistory /></MemberRoute>,
       },
 
 

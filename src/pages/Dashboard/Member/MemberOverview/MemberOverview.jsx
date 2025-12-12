@@ -11,7 +11,7 @@ const MemberOverview = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth(); // dynamic user
   const userEmail = user?.email || ''; // fallback if undefined
-  const role = user?.role || 'manager';
+  const role = user?.role || 'member';
 
   // Fetch member overview
   const { data, isLoading, isError } = useQuery({
