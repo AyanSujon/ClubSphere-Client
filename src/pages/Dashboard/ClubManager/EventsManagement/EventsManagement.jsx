@@ -4,17 +4,20 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { FaCalendarAlt, FaMapMarkerAlt, FaDollarSign, FaEdit, FaTrash } from "react-icons/fa";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
+import { Link } from "react-router";
+import useAuth from "../../../../hooks/useAuth";
 
 const EventsManagement = () => {
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
+  const {user}=useAuth();
 
   // Fetch events for manager
   const { data: events = [], isLoading, isError } = useQuery({
     queryKey: ["events"],
     queryFn: async () => {
       try {
-        const managerEmail = "ayansujonbd@gmail.com"; // replace with dynamic email if needed
+        const managerEmail = user?.email; 
         const res = await axiosSecure.get(`/events?managerEmail=${managerEmail}`);
         return res.data;
       } catch (error) {
@@ -88,9 +91,12 @@ const EventsManagement = () => {
                 </td>
                 <td>{event.maxAttendees}</td>
                 <td className="flex gap-2">
-                  <button className="btn btn-sm btn-primary flex items-center gap-1">
+                  <Link to={`/manager/events-management/${event._id}/edit`} className="btn btn-sm btn-primary flex items-center gap-1">
                     <FaEdit /> Edit
-                  </button>
+                  </Link>
+                  {/* <button className="btn btn-sm btn-primary flex items-center gap-1">
+                    <FaEdit /> Edit
+                  </button> */}
                   <button
                     className="btn btn-sm btn-secondary flex items-center gap-1"
                     onClick={() => handleDelete(event._id)}

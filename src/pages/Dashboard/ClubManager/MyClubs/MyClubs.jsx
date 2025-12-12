@@ -127,13 +127,15 @@ import { useQuery } from "@tanstack/react-query";
 import { FaEye, FaEdit } from "react-icons/fa";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { Link } from "react-router";
+import useAuth from "../../../../hooks/useAuth";
 
 const MyClubs = () => {
   const axiosSecure = useAxiosSecure();
+  const {user}= useAuth();
 
   // Manager email (can be dynamic)
-  const managerEmail = "ayansujonbd@gmail.com";
-  const role = "manager";
+  const managerEmail = user?.email;
+  const role = user?.role;
 
   // Fetch manager's clubs
   const { data, isLoading, isError } = useQuery({

@@ -30,6 +30,7 @@ import MemberOverview from "../pages/Dashboard/Member/MemberOverview/MemberOverv
 import MyClubsMember from "../pages/Dashboard/Member/MyClubsMember/MyClubsMember";
 import MyEventsMember from "../pages/Dashboard/Member/MyEventsMember/MyEventsMember";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory/PaymentHistory";
+import EditEvent from "../pages/Dashboard/ClubManager/EditEvent/EditEvent";
 
 export const router = createBrowserRouter([
   {
@@ -144,6 +145,10 @@ export const router = createBrowserRouter([
       {
         path: 'manager/events-management',
         element: <EventsManagement />,
+      },
+      {
+        path: 'manager/events-management/:id/edit',
+        element: <EditEvent/>,
       },
       {
         path: 'manager/event-registrations',

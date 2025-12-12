@@ -157,8 +157,8 @@ const {user} = useAuth();
     queryKey: ["clubMembers"],
     queryFn: async () => {
       const response = await axiosSecure.get(
-        // `/club-members?managerEmail=${user.email}&role=${user.role}`
-        "/club-members?managerEmail=ayansujonbd@gmail.com&role=manager"
+        `/club-members?managerEmail=${user?.email}&role=${user?.role}`
+        // "/club-members?managerEmail=ayansujonbd@gmail.com&role=clubManager"
       );
       return response.data.data;
     },

@@ -2,12 +2,14 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { FaUsers, FaMoneyBillWave, FaRegCalendarAlt, FaUniversity } from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
 
 const ClubManager = () => {
   const axiosSecure = useAxiosSecure();
+  const {user}= useAuth();
 
   // YOUR MANAGER EMAIL
-  const managerEmail = "ayansujonbd@gmail.com"; // <-- change dynamically if needed
+  const managerEmail = user?.email;
 
   // FETCH MANAGER OVERVIEW DATA
   const { data: overview = {}, isLoading } = useQuery({

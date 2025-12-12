@@ -4,12 +4,9 @@ import { FaBuilding, FaClipboardList, FaMoneyBillWave, FaUsers, FaUserShield, Fa
 import { FaUserFriends, FaCalendarAlt, FaMoneyCheckAlt } from "react-icons/fa";
 
 import Logo from '../components/shared/Logo';
-import Container from '../components/shared/Container';
 const Dashboard = () => {
     return (
         <div>
-
-            <Container>
                 <div className="drawer lg:drawer-open">
                     <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
@@ -150,8 +147,6 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-            </Container>
-
         </div>
     );
 };
