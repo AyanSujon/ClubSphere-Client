@@ -35,6 +35,8 @@ import AdminRoute from "./AdminRoute";
 import ClubManagerRoute from "./ClubManagerRoute";
 import MemberRoute from "./MemberRoute";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
+import CreateEvent from "../pages/Dashboard/ClubManager/CreateEvent/CreateEvent";
+import CreateClub from "../pages/Dashboard/ClubManager/CreateClub/CreateClub";
 
 export const router = createBrowserRouter([
   {
@@ -157,6 +159,14 @@ export const router = createBrowserRouter([
       {
         path: 'manager/event-registrations',
         element: <ClubManagerRoute><EventRegistrations /></ClubManagerRoute>,
+      },
+      {
+        path: 'manager/create-event',
+        element: <ClubManagerRoute><CreateEvent/></ClubManagerRoute>,
+      },
+      {
+        path: 'manager/create-club',
+        element: <ClubManagerRoute><CreateClub/></ClubManagerRoute>,
       },
       {
         path: 'member',
