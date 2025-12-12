@@ -83,19 +83,6 @@ const ClubsDetails = () => {
 
 
 
-    // const paymentInfo = {
-    //   bannerImage: club.bannerImage,
-    //   category: club.category,
-    //   clubName: club.clubName,
-    //   // createdAt: club. createdAt,
-    //   description: club.description,
-    //   location: club.location,
-    //   managerEmail: club.managerEmail,
-    //   membershipFee: club.membershipFee,
-    //   status: club.status,
-    //   updatedAt: club.updatedAt,
-    //   createdAt: new Date().toISOString(),
-    // }
 
 // Paid club → start payment
     const paymentInfo = {

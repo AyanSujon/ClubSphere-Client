@@ -91,7 +91,7 @@ const EventsManagement = () => {
                 </td>
                 <td>{event.maxAttendees}</td>
                 <td className="flex gap-2">
-                  <Link to={`/manager/events-management/${event._id}/edit`} className="btn btn-sm btn-primary flex items-center gap-1">
+                  <Link to={`${event._id}/edit`} className="btn btn-sm btn-primary flex items-center gap-1">
                     <FaEdit /> Edit
                   </Link>
                   {/* <button className="btn btn-sm btn-primary flex items-center gap-1">
