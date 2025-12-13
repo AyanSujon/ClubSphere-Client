@@ -3,7 +3,7 @@
 
 
 // const axiosSecure = axios.create({
-//     baseURL: 'http://localhost:3000'
+//     baseURL: 'https://club-sphere-api.vercel.app'
 // })
 
 
@@ -23,7 +23,7 @@
 
 
 // const axiosSecure = axios.create({
-//     baseURL: 'http://localhost:3000'
+//     baseURL: 'https://club-sphere-api.vercel.app'
 // })
 
 
@@ -60,7 +60,7 @@ import { useNavigate } from 'react-router';
 import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://club-sphere-api.vercel.app',
 });
 
 const useAxiosSecure = () => {
