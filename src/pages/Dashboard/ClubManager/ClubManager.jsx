@@ -149,7 +149,7 @@ const ClubManager = () => {
         <h1 className="text-3xl font-semibold">Club Manager Overview</h1>
         <div className="flex gap-3">
           {/* Create Event Button */}
-          <Link to={"create-event"}
+          <Link to={"/dashboard/create-event"}
            
             className="btn btn-primary flex items-center gap-2"
           >
@@ -157,7 +157,7 @@ const ClubManager = () => {
           </Link>
 
           {/* Create Club Button */}
-          <Link to={"create-club"}
+          <Link to={"/dashboard/create-club"}
             className="btn btn-secondary flex items-center gap-2"
           >
             <FaPlus /> Create Club

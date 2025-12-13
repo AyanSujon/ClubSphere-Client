@@ -161,11 +161,11 @@ export const router = createBrowserRouter([
         element: <ClubManagerRoute><EventRegistrations /></ClubManagerRoute>,
       },
       {
-        path: 'manager/create-event',
+        path: '/dashboard/create-event',
         element: <ClubManagerRoute><CreateEvent/></ClubManagerRoute>,
       },
       {
-        path: 'manager/create-club',
+        path: '/dashboard/create-club',
         element: <ClubManagerRoute><CreateClub/></ClubManagerRoute>,
       },
       {

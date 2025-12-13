@@ -1,7 +1,23 @@
+
+
+
+
+
+
+
+
+
+
 import React from "react";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const CreateClub = () => {
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -14,21 +30,35 @@ const CreateClub = () => {
       location: "Austin, TX",
       bannerImage: "https://example.com/coding-banner.jpg",
       membershipFee: 50,
-      managerEmail: "ayansujonbd@gmail.com",
+      managerEmail: user?.email || "", // default to logged-in user email
       createdAt: "2025-09-12T11:30",
       updatedAt: "2025-12-02T10:30",
     },
   });
 
-  const onSubmit = (data) => {
-    console.log("Club Data:", data);
+  const onSubmit = async (data) => {
+    try {
+      // Attach user info if needed
+      const payload = {
+        ...data,
+        createdBy: user?.email,
+      };
+
+      const response = await axiosSecure.post("/clubs", payload); // adjust endpoint if different
+      if (response.data?.insertedId) {
+        Swal.fire("Success!", "Club created successfully!", "success");
+      } else {
+        Swal.fire("Error", "Failed to create club", "error");
+      }
+    } catch (error) {
+      console.error("Error creating club:", error);
+      Swal.fire("Error", "Failed to create club", "error");
+    }
   };
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-[#0b99ce]">
-        Create a New Club
-      </h2>
+      <h2 className="text-2xl font-bold mb-6 text-[#0b99ce]">Create a New Club</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
@@ -134,7 +164,7 @@ const CreateClub = () => {
           </div>
         </div>
 
-                {/* Description */}
+        {/* Description */}
         <div className="form-control w-full">
           <label className="label">
             <span className="label-text font-semibold">Description</span>
@@ -156,10 +186,24 @@ const CreateClub = () => {
         >
           Create Club
         </button>
-
       </form>
     </div>
   );
 };
 
 export default CreateClub;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
