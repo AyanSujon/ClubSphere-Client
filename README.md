@@ -46,7 +46,7 @@ ClubSphere is built around a robust **three-role system** (Admin, Club Manager, 
 
 Use the following credentials to explore the different role-based dashboards:
 
-| Role | Username | Email |
+| Role | Password | Email |
 | :--- | :--- | :--- |
 | **Admin** | `@Admin1` | `admin1@gmail.com` |
 | **Club Manager** | `@Manager1` | `manager1@gmail.com` |
@@ -54,78 +54,7 @@ Use the following credentials to explore the different role-based dashboards:
 
 ---
 
-## 🛠️ Installation Guide
 
-To set up and run this project locally, follow these steps for both the backend (Server) and frontend (Client).
-
-### Prerequisites
-
-* Node.js (LTS version recommended)
-* npm or yarn
-* MongoDB Atlas (or local MongoDB instance)
-* Firebase Project (for authentication)
-* Stripe Account (for payment integration)
-
-### 1. Backend Setup
-
-1.  **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/AyanSujon/ClubSphere-Server.git](https://github.com/AyanSujon/ClubSphere-Server.git)
-    cd ClubSphere-Server
-    ```
-
-2.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Configure Environment Variables:**
-    Create a file named `.env` in the root of the server directory and add your credentials:
-    ```
-    PORT=5000
-    DATABASE_URL=<Your_MongoDB_Connection_String>
-    STRIPE_SECRET_KEY=<Your_Stripe_Secret_Key>
-    FIREBASE_SERVICE_ACCOUNT=<Path_to_your_Firebase_Admin_SDK_JSON_File>
-    # Add any other necessary secrets (e.g., JWT secret if used)
-    ```
-
-4.  **Run the Server:**
-    ```bash
-    npm start 
-    # or npm run dev if using nodemon
-    ```
-    The server should start running at the specified PORT (e.g., `http://localhost:5000`).
-
-### 2. Frontend Setup
-
-1.  **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/AyanSujon/ClubSphere-Client.git](https://github.com/AyanSujon/ClubSphere-Client.git)
-    cd ClubSphere-Client
-    ```
-
-2.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Configure Environment Variables:**
-    Create a file named `.env` (or `.env.local`) in the root of the client directory and add your environment variables, including the backend API URL and Firebase Config:
-    ```
-    VITE_API_URL=http://localhost:5000
-    # Your Firebase config and other client-side keys
-    VITE_FIREBASE_API_KEY=<Your_Firebase_API_Key>
-    VITE_STRIPE_PUBLIC_KEY=<Your_Stripe_Public_Key>
-    # ... other Firebase configuration variables ...
-    ```
-
-4.  **Run the Client:**
-    ```bash
-    npm run dev
-    ```
-    The React application should now be accessible in your browser (e.g., `http://localhost:5173`).
-
----
 
 ## 📦 Important npm Packages Used
 
