@@ -5,12 +5,14 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../../../hooks/useAuth";
 
 const CreateEvent = () => {
   const axiosSecure = useAxiosSecure();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const {user}= useAuth();
 
   const {
     register,
@@ -37,7 +39,7 @@ const CreateEvent = () => {
       eventFee: data.isPaid === "true" ? Number(data.eventFee) : 0,
       maxAttendees: Number(data.maxAttendees),
       createdAt: new Date().toISOString(),
-      managerEmail: "ayansujonbd@gmail.com",
+      managerEmail: user?.email,
     };
 
     try {
@@ -160,16 +162,17 @@ const CreateEvent = () => {
             {/* Read-only */}
             <div className="grid md:grid-cols-2 gap-4">
               <input
+              
                 type="datetime-local"
                 readOnly
                 value={new Date().toISOString().slice(0, 16)}
-                className="input input-bordered bg-gray-100"
+                className="input input-bordered bg-gray-100 w-full"
               />
               <input
                 type="email"
                 readOnly
-                value="ayansujonbd@gmail.com"
-                className="input input-bordered bg-gray-100"
+                value={user?.email}
+                className="input input-bordered bg-gray-100 w-full"
               />
             </div>
 
