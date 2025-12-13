@@ -34,6 +34,7 @@ const useRole = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
+  console.log(user)
   const { data: role, isLoading: roleLoading } = useQuery({
     queryKey: ['user-role', user?.email],
     queryFn: async () => {
