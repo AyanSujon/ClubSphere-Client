@@ -37,6 +37,7 @@ import MemberRoute from "./MemberRoute";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import CreateEvent from "../pages/Dashboard/ClubManager/CreateEvent/CreateEvent";
 import CreateClub from "../pages/Dashboard/ClubManager/CreateClub/CreateClub";
+import HowItWorks from "../pages/HowItWorks/HowItWorks";
 
 export const router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
       {
         path: '/payment-cancelled',
         element: <PrivateRoute> <PaymentCancelled /></PrivateRoute>
+      },
+      {
+        path: '/how-it-works',
+        element: <HowItWorks/>,
       },
       {
         path: '/pricing',
