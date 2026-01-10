@@ -8,6 +8,7 @@ import PopularCategories from './PopularCategories';
 import Newsletter from '../../components/shared/Newsletter';
 import BecomeAClubManagerCTA from './BecomeAClubManagerCTA';
 import StatsSection from './StatsSection';
+import TopClubManagers from './TopClubManagers';
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
            <StatsSection/>
            <PopularCategories></PopularCategories>
            <FeaturedClubs></FeaturedClubs>
+           <TopClubManagers/>
            <HowClubSphereWorks></HowClubSphereWorks>
            <WhyJoinClub></WhyJoinClub>
            <BecomeAClubManagerCTA/>

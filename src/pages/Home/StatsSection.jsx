@@ -1,8 +1,5 @@
 
 
-
-"use client";
-
 import { useQuery } from "@tanstack/react-query";
 import CountUp from "react-countup";
 import { FaUsers, FaLayerGroup, FaRegCalendarCheck, FaTags } from "react-icons/fa";
