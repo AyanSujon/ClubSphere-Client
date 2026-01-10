@@ -43,6 +43,7 @@ import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 import RefundPolicy from "../pages/RefundPolicy/RefundPolicy";
 import CookiePolicy from "../pages/CookiePolicy/CookiePolicy";
 import SupportCenter from "../pages/SupportCenter/SupportCenter";
+import BecomeAClubManager from "../pages/BecomeAClubManager/BecomeAClubManager";
 
 export const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ export const router = createBrowserRouter([
       {
         path: '/profile',
         element: <PrivateRoute><Profile /></PrivateRoute>,
+      },
+      {
+        path: '/become-a-club-manager',
+        element: <BecomeAClubManager/>,
       },
       {
         path: '/privacy-policy',
