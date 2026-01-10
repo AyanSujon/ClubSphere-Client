@@ -72,6 +72,7 @@
 import React from "react";
 import { Users, BookOpen, Star, Activity } from "lucide-react";
 import { motion } from "framer-motion"; 
+import Container from "../../components/shared/Container";
 const whyJoinData = [
   {
     id: 1,
@@ -101,8 +102,8 @@ const whyJoinData = [
 
 const WhyJoinClub = () => {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <Container>
+      <div className="container mx-auto">
         <motion.h2
           className="text-4xl font-bold text-center mb-12 text-[#0b99ce]"
           initial={{ opacity: 0, y: -30 }}
@@ -140,7 +141,7 @@ const WhyJoinClub = () => {
           ))}
         </motion.div>
       </div>
-    </section>
+    </Container>
   );
 };
 
