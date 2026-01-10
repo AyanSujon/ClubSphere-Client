@@ -7,6 +7,7 @@ import WhyJoinClub from './WhyJoinClub';
 import PopularCategories from './PopularCategories';
 import Newsletter from '../../components/shared/Newsletter';
 import BecomeAClubManagerCTA from './BecomeAClubManagerCTA';
+import StatsSection from './StatsSection';
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
         <div>
            <Hero></Hero>
            <UpcomingEvents></UpcomingEvents>
+           <StatsSection/>
            <PopularCategories></PopularCategories>
            <FeaturedClubs></FeaturedClubs>
            <HowClubSphereWorks></HowClubSphereWorks>

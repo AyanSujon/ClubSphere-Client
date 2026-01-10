@@ -1,4 +1,4 @@
-"use client";
+
 import { FaUsersCog, FaMoneyCheckAlt, FaCalendarCheck, FaRegChartBar } from "react-icons/fa";
 import Container from "../../components/shared/Container";
 import { Link } from "react-router";
