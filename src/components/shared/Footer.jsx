@@ -44,11 +44,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Important Links</h3>
             <ul className="space-y-3">
-              <li className="hover:text-[#0b99ce] cursor-pointer">Privacy Policy</li>
-              <li className="hover:text-[#0b99ce] cursor-pointer">Terms & Conditions</li>
-              <li className="hover:text-[#0b99ce] cursor-pointer">Refund Policy</li>
-              <li className="hover:text-[#0b99ce] cursor-pointer">Cookie Policy</li>
-              <li className="hover:text-[#0b99ce] cursor-pointer">Support Center</li>
+              <li className="hover:text-[#0b99ce] cursor-pointer"> <Link to={"/privacy-policy"}>Privacy Policy</Link></li>
+              <li className="hover:text-[#0b99ce] cursor-pointer"> <Link to={"/terms-and-conditions"}>Terms & Conditions</Link></li>
+              <li className="hover:text-[#0b99ce] cursor-pointer"><Link to={"/refund-policy"}>Refund Policy</Link></li>
+              <li className="hover:text-[#0b99ce] cursor-pointer"><Link to={"/cookie-policy"}>Cookie Policy</Link></li>
+              <li className="hover:text-[#0b99ce] cursor-pointer"><Link to={"/support-center"}>Support Center</Link></li>
             </ul>
           </div>
 

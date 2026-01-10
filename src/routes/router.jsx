@@ -38,6 +38,11 @@ import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import CreateEvent from "../pages/Dashboard/ClubManager/CreateEvent/CreateEvent";
 import CreateClub from "../pages/Dashboard/ClubManager/CreateClub/CreateClub";
 import HowItWorks from "../pages/HowItWorks/HowItWorks";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
+import RefundPolicy from "../pages/RefundPolicy/RefundPolicy";
+import CookiePolicy from "../pages/CookiePolicy/CookiePolicy";
+import SupportCenter from "../pages/SupportCenter/SupportCenter";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +93,22 @@ export const router = createBrowserRouter([
       {
         path: '/profile',
         element: <PrivateRoute><Profile /></PrivateRoute>,
+      },
+      {
+        path: '/privacy-policy',
+        element: <PrivacyPolicy/>,
+      },
+      {
+        path: '/terms-and-conditions',
+        element: <TermsAndConditions/>,
+      },
+      {
+        path: '/refund-policy',
+        element:<RefundPolicy/>,
+      },
+      {
+        path: '/support-center',
+        element:<SupportCenter/>,
       },
     ]
   },
