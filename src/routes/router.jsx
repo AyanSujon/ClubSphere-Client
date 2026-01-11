@@ -112,6 +112,10 @@ export const router = createBrowserRouter([
         element:<RefundPolicy/>,
       },
       {
+        path: '/cookie-policy',
+        element:<CookiePolicy/>,
+      },
+      {
         path: '/support-center',
         element:<SupportCenter/>,
       },
