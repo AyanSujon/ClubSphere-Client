@@ -6,6 +6,10 @@
 
 It simplifies the organizational burden for club managers by providing tools for club/event creation, membership fee collection, and registration tracking. For members, it offers a seamless way to find clubs, manage their memberships, and register for events securely.
 
+---
+<img width="1354" height="607" alt="ClubSphere" src="https://github.com/user-attachments/assets/55d9d702-4f61-42b2-9f14-5b263571ca29" />
+---
+
 ## 🚀 Live URL & Repositories
 
 | Type | Link |
@@ -15,6 +19,8 @@ It simplifies the organizational burden for club managers by providing tools for
 | **Server (Backend) Repo** | [https://github.com/AyanSujon/ClubSphere-Server.git](https://github.com/AyanSujon/ClubSphere-Server.git) |
 | **API Endpoint** | [https://club-sphere-api.vercel.app/](https://club-sphere-api.vercel.app/) |
 
+
+---
 ## ✨ Key Features
 
 ClubSphere is built around a robust **three-role system** (Admin, Club Manager, and Club Member) and offers the following core functionalities:
